@@ -1,0 +1,24 @@
+{
+  "name": "secure-banking-dashboard",
+  "version": "1.0.0",
+  "description": "Secure Banking Authentication and Account Dashboard - Full-Stack Internship Project",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js",
+    "test": "cd backend && npm test",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "banking",
+    "security",
+    "authentication",
+    "otp",
+    "dashboard",
+    "full-stack"
+  ],
+  "author": "Internship Project",
+  "license": "ISC"
+}
