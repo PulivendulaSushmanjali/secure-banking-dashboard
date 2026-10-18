@@ -2,14 +2,53 @@
   "name": "secure-banking-dashboard",
   "version": "1.0.0",
   "description": "Secure Banking Authentication and Account Dashboard - Full-Stack Internship Project",
-  "main": "backend/server.js",
+  "main": "desktop/main.cjs",
   "scripts": {
     "start": "node backend/server.js",
     "dev": "node backend/server.js",
     "test": "cd backend && npm test",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
-    "build:frontend": "cd frontend && npm run build"
+    "build:frontend": "cd frontend && npm run build",
+    "desktop:dev": "npm run build:frontend && electron .",
+    "desktop:build": "npm run build:frontend && electron-builder --win nsis"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.fortisvault.banking",
+    "productName": "Fortis Vault",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "desktop/**/*",
+      "backend/**/*",
+      "frontend/dist/**/*",
+      "package.json",
+      "!backend/node_modules/**/*",
+      "!backend/tests/**/*",
+      "!backend/database.sqlite*",
+      "!backend/.env"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "keywords": [
     "banking",
